@@ -1,6 +1,6 @@
 import path from 'node:path'
 import * as dotenv from "dotenv"
-dotenv.config({path:path.resolve("./src/config/.env.dev")})
+dotenv.config({path:path.resolve("./src/config/.env.prod")})
 import express from 'express'
 import bootstrap from './src/app.controller.js'
 import { startCronJob } from './src/utilies/shared/CronJob.js'
