@@ -62,10 +62,6 @@ export const shareProfile = asyncHandller(async (req, res, next) => {
     if (!user) {
         return next(new Error("user not found", { cause: 404 }))
     }
-    if (user && user.mobileNumber) {
-        user.mobileNumber = generateDecryption({ cipherText: user.mobileNumber })
-    }
-
     return successResponse({ res, data: { user } })
 
 })
