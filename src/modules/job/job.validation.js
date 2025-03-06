@@ -37,8 +37,8 @@ export const getAllJobs = joi.object().keys({
     companyId: generalFields.id.required(),
     jobId: generalFields.id,
     companyName: joi.string(),
-    page: joi.number(),
-    size: joi.number()
+    page: joi.number().required(),
+    size: joi.number().required()
 }).required()
 
 

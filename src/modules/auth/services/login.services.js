@@ -30,7 +30,7 @@ export const login = asyncHandller(async (req, res, next) => {
   
 
     if (!compareHash({ plainText: password, hashValue: user.password })) {
-        return next(new Error("invalid login data hu", { cause: 404 }))
+        return next(new Error("invalid login data ", { cause: 404 }))
     }
     if (user.deletedAt) {
         emailEvent.emit("reactivateAccount", { id: user._id, email })

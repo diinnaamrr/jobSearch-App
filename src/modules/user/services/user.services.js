@@ -150,6 +150,7 @@ export const profilePic = asyncHandller(async (req, res, next) => {
         data: {
             profilePic: { secure_url, public_id }
         },
+        select:('-Otp'),
         options: { new: false }
     })
     if (user.profilePic?.public_id) {
@@ -168,6 +169,7 @@ export const coverPic = asyncHandller(async (req, res, next) => {
         data: {
             coverPic: { secure_url, public_id }
         },
+        select:("-Otp"),
         options: { new: false }
     })
     if (user.coverPic?.public_id) {
@@ -240,6 +242,9 @@ export const bannOrUnBannUser = asyncHandller(async (req, res, next) => {
         return next(new Error("user not found", { cause: 404 }))
     }
 
+    if (userExist._id.toString() === req.user._id.toString()) {
+        return next(new Error(" you can't ban or unban yourself!!"))
+    }
     if (userExist.role === roleTypes.admin) {
         return next(new Error(" you are not authorized to bann Admin!!"))
     }
