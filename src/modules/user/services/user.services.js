@@ -55,7 +55,8 @@ export const shareProfile = asyncHandller(async (req, res, next) => {
         model: userModel,
         filter: {
             _id: userId,
-            deletedAt: { $exists: false }
+            deletedAt: { $exists: false },
+            isConfirmed:true
         }, select: ("firstName lastName mobileNumber profilePic coverPic")
     })
     if (!user) {
