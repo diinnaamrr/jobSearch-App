@@ -3,11 +3,11 @@ import * as companyQueryServices from './services/company.quer.services.js'
 import { GraphQLString } from 'graphql'
 
 
-export const query={
-    getAllCompanies:{
-        type:companyGraphTypes.getAllCompanies,
-        args:{
-            authorization:{type:GraphQLString}
+export const query = {
+    getAllCompanies: {
+        type: companyGraphTypes.getAllCompanies,
+        args: {
+            authorization: { type: GraphQLString }
         },
         resolve: companyQueryServices.getAllCompanies
     }
